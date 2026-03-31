@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import BottomNav from "@/components/BottomNav";
 import { useToast } from "@/hooks/use-toast";
+import Navbar from "@/components/Navbar";
 
 const Recipes = () => {
   const navigate = useNavigate();
@@ -33,11 +34,12 @@ const Recipes = () => {
     setRecipes([estimated, ...recipes]);
     setNewRecipe({ title: "", description: "" });
     setDialogOpen(false);
-    toast({ title: "Recipe added! Calories auto-calculated 🧮" });
+    toast({ title: "Recipe added! Calories auto-calculated" });
   };
 
   return (
     <div className="min-h-screen bg-background pb-20">
+      <Navbar />
       <div className="px-5 pt-6 pb-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button onClick={() => navigate("/")} className="text-muted-foreground hover:text-foreground">
@@ -88,7 +90,7 @@ const Recipes = () => {
       {/* AI Meal Suggestion */}
       <div className="px-5 mb-5">
         <div className="bg-gradient-to-r from-primary/20 to-primary/5 border border-primary/30 rounded-xl p-4">
-          <p className="text-primary font-semibold text-sm mb-1">🤖 AI Meal Suggestion</p>
+          <p className="text-primary font-semibold text-sm mb-1">AI Meal Suggestion</p>
           <p className="text-foreground text-sm">Based on your profile: Try a high-protein chicken bowl for lunch (~520 cal) to hit your daily protein target.</p>
         </div>
       </div>
@@ -103,7 +105,7 @@ const Recipes = () => {
             transition={{ delay: i * 0.05 }}
             className="bg-card border border-border rounded-xl p-4 hover:border-primary/30 transition-colors cursor-pointer"
           >
-            <div className="text-4xl mb-3">{recipe.image}</div>
+            {/* <div className="text-4xl mb-3">{recipe.image}</div> */}
             <h3 className="font-semibold text-foreground mb-1">{recipe.title}</h3>
             <p className="text-muted-foreground text-sm mb-3 line-clamp-2">{recipe.description}</p>
 

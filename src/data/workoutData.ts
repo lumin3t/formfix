@@ -26,7 +26,7 @@ export interface WorkoutPlan {
 export const pushPullLegPlan: WorkoutPlan = {
   id: "ppl",
   name: "Push Pull Legs",
-  description: "Classic 3-day split targeting push, pull, and leg movements for balanced development.",
+  description: "A high-efficiency split targeting functional movement patterns for total body power and symmetry.",
   image: "push",
   days: [
     {
@@ -71,15 +71,15 @@ export const pushPullLegPlan: WorkoutPlan = {
   ],
 };
 
-export const broSplitPlan: WorkoutPlan = {
-  id: "bro",
-  name: "Bro Split",
-  description: "5-day body part split. One muscle group per day for maximum volume and focus.",
-  image: "bro",
+export const highVolumeSplitPlan: WorkoutPlan = {
+  id: "volume-split",
+  name: "Body Part Split",
+  description: "A precision 5-day split designed for maximum muscle focus and high-volume hypertrophy.",
+  image: "split",
   days: [
     {
       id: "chest",
-      name: "Chest Day",
+      name: "Chest Focus",
       focus: "Chest",
       exercises: [
         { id: "bbp", name: "Flat Bench Press", sets: 4, reps: "6-8", muscle: "Chest", description: "Classic barbell bench press.", tips: ["Retract scapula", "Drive feet", "Control descent"] },
@@ -90,7 +90,7 @@ export const broSplitPlan: WorkoutPlan = {
     },
     {
       id: "back",
-      name: "Back Day",
+      name: "Back Focus",
       focus: "Back",
       exercises: [
         { id: "bdl", name: "Barbell Rows", sets: 4, reps: "6-8", muscle: "Back", description: "Bent over barbell row.", tips: ["45 degree torso", "Pull to navel", "Squeeze blades"] },
@@ -101,7 +101,7 @@ export const broSplitPlan: WorkoutPlan = {
     },
     {
       id: "shoulders",
-      name: "Shoulder Day",
+      name: "Shoulder Focus",
       focus: "Shoulders",
       exercises: [
         { id: "mp", name: "Military Press", sets: 4, reps: "6-8", muscle: "Front Delts", description: "Strict overhead barbell press.", tips: ["Brace core", "Full lockout", "Controlled descent"] },
@@ -112,7 +112,7 @@ export const broSplitPlan: WorkoutPlan = {
     },
     {
       id: "arms",
-      name: "Arms Day",
+      name: "Arm Focus",
       focus: "Biceps & Triceps",
       exercises: [
         { id: "abc", name: "Barbell Curls", sets: 4, reps: "8-10", muscle: "Biceps", description: "Strict barbell curls.", tips: ["No swinging", "Full range", "Squeeze top"] },
@@ -123,7 +123,7 @@ export const broSplitPlan: WorkoutPlan = {
     },
     {
       id: "blegs",
-      name: "Leg Day",
+      name: "Lower Body",
       focus: "Legs",
       exercises: [
         { id: "bsq", name: "Squats", sets: 4, reps: "6-8", muscle: "Quads", description: "Barbell back squats.", tips: ["Full depth", "Brace core", "Drive through heels"] },
@@ -144,7 +144,6 @@ export const sampleRecipes = [
     protein: 45,
     carbs: 42,
     fat: 18,
-    image: "🍗",
   },
   {
     id: "2",
@@ -154,7 +153,6 @@ export const sampleRecipes = [
     protein: 38,
     carbs: 55,
     fat: 14,
-    image: "🥤",
   },
   {
     id: "3",
@@ -164,7 +162,6 @@ export const sampleRecipes = [
     protein: 42,
     carbs: 38,
     fat: 24,
-    image: "🐟",
   },
   {
     id: "4",
@@ -174,7 +171,6 @@ export const sampleRecipes = [
     protein: 28,
     carbs: 40,
     fat: 8,
-    image: "🥣",
   },
   {
     id: "5",
@@ -184,7 +180,6 @@ export const sampleRecipes = [
     protein: 48,
     carbs: 52,
     fat: 20,
-    image: "🥩",
   },
   {
     id: "6",
@@ -194,6 +189,8 @@ export const sampleRecipes = [
     protein: 32,
     carbs: 8,
     fat: 12,
-    image: "🍳",
   },
 ];
+
+// Add this at the end of the file to prevent the "export not found" error
+export const broSplitPlan = highVolumeSplitPlan;

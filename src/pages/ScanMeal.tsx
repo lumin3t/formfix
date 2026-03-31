@@ -5,6 +5,7 @@ import { ArrowLeft, Camera, ScanLine, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BottomNav from "@/components/BottomNav";
 import { useToast } from "@/hooks/use-toast";
+import Navbar from "@/components/Navbar";
 
 const ScanMeal = () => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const ScanMeal = () => {
 
   return (
     <div className="min-h-screen bg-background pb-20">
+      <Navbar />
       <div className="px-5 pt-6 pb-4 flex items-center gap-3">
         <button onClick={() => navigate("/")} className="text-muted-foreground hover:text-foreground">
           <ArrowLeft className="h-6 w-6" />
