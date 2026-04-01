@@ -17,7 +17,7 @@ const Navbar = () => {
       <Link to="/" className="flex items-center gap-2 hover-lift">
         <Dumbbell className="h-6 w-6 text-primary" />
         <span className="font-heading text-2xl tracking-wider text-foreground">
-          FIT<span className="text-gradient">FORGE</span>
+          FORM<span className="text-gradient">FIX</span>
         </span>
       </Link>
 

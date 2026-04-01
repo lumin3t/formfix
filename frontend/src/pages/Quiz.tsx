@@ -14,10 +14,10 @@ const questions: QuizQuestion[] = [
   {
     question: "What's your fitness goal?",
     options: [
-      { label: "Build Muscle 💪", value: "muscle" },
-      { label: "Lose Fat 🔥", value: "fat_loss" },
-      { label: "Strength 🏋️", value: "strength" },
-      { label: "General Fitness 🏃", value: "general" },
+      { label: "Build Muscle", value: "muscle" },
+      { label: "Lose Fat", value: "fat_loss" },
+      { label: "Strength", value: "strength" },
+      { label: "General Fitness", value: "general" },
     ],
   },
   {
@@ -32,17 +32,17 @@ const questions: QuizQuestion[] = [
   {
     question: "What's your experience level?",
     options: [
-      { label: "Beginner 🌱", value: "beginner" },
-      { label: "Intermediate 💪", value: "intermediate" },
-      { label: "Advanced 🔥", value: "advanced" },
+      { label: "Beginner", value: "beginner" },
+      { label: "Intermediate", value: "intermediate" },
+      { label: "Advanced", value: "advanced" },
     ],
   },
   {
     question: "Any equipment preference?",
     options: [
-      { label: "Full Gym 🏋️", value: "full_gym" },
-      { label: "Home Gym 🏠", value: "home" },
-      { label: "Bodyweight Only 🤸", value: "bodyweight" },
+      { label: "Full Gym ", value: "full_gym" },
+      { label: "Home Gym ", value: "home" },
+      { label: "Bodyweight Only", value: "bodyweight" },
       { label: "Dumbbells Only", value: "dumbbells" },
     ],
   },
@@ -77,7 +77,7 @@ const Quiz = () => {
     } else {
       // Quiz complete
       localStorage.setItem("quizAnswers", JSON.stringify(answers));
-      toast({ title: "Custom plan generated! 🎯" });
+      toast({ title: "Custom plan generated!" });
       navigate("/workout/ppl"); // Navigate to PPL as placeholder
     }
   };

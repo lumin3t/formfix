@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Apple, Target, TrendingUp, CalendarDays, ArrowRight, Zap } from "lucide-react";
+import { Apple, Target, TrendingUp, ArrowRight, Zap } from "lucide-react";
 import Navbar from "../components/Navbar";
 import BottomNav from "@/components/BottomNav";
 import heroImg from "@/assets/hero-fitness.jpg";
@@ -9,7 +9,6 @@ const features = [
   { icon: Apple, title: "Add Recipes", desc: "Add and organize your healthy recipes", color: "text-primary" },
   { icon: Target, title: "Calorie Tracker", desc: "Track your daily caloric intake and goals", color: "text-accent" },
   { icon: TrendingUp, title: "Workout Plans", desc: "Structured exercises for different muscle groups", color: "text-primary" },
-  { icon: CalendarDays, title: "Meal Planning", desc: "Plan your meals and get food suggestions", color: "text-accent" },
 ];
 
 const stats = [
@@ -69,7 +68,6 @@ const Index = () => {
       and meal planning to achieve your health goals.
     </motion.p>
 
-    {/* The rest of your buttons and stats... */}
   </div>
 </section>
         {/* Features Section */}
@@ -92,7 +90,7 @@ const Index = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, i) => (
                 <motion.div
                   key={feature.title}
@@ -104,7 +102,7 @@ const Index = () => {
                     if (feature.title === "Add Recipes") navigate("/recipes");
                     else if (feature.title === "Calorie Tracker") navigate("/scan");
                     else if (feature.title === "Workout Plans") navigate("/workouts");
-                    else navigate("/recipes");
+                    else navigate("/");
                   }}
                   className="glass-card p-8 text-center group cursor-pointer"
                 >
@@ -126,7 +124,7 @@ const Index = () => {
         {/* Footer */}
         <footer className="border-t border-border/30 py-8">
           <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            <span className="text-xs text-muted-foreground">© 2026 FitLife. All rights reserved.</span>
+            <span className="text-xs text-muted-foreground">© 2026 FornFix. All rights reserved.</span>
             <span className="text-xs text-muted-foreground">Built with &lt;3</span>
           </div>
         </footer>

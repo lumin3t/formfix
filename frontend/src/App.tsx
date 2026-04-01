@@ -13,6 +13,7 @@ import Quiz from "./pages/Quiz";
 import Recipes from "./pages/Recipes";
 import ScanMeal from "./pages/ScanMeal";
 import NotFound from "./pages/NotFound";
+import Camera from "./pages/Camera";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/workouts" element={<Workouts />} />
           <Route path="/workout/:planId" element={<WorkoutDetail />} />
+          <Route path="/camera" element={<Camera />} />
           <Route path="/workout/:planId/:dayId" element={<DayExercises />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/recipes" element={<Recipes />} />
