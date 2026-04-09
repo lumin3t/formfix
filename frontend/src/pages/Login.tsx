@@ -7,24 +7,50 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import heroImg from "@/assets/hero-fitness.jpg";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (!email || !password) {
       toast({ title: "Please fill all fields", variant: "destructive" });
       return;
     }
-    // Mock login - will be replaced with Cloud auth
-    localStorage.setItem("fitUser", JSON.stringify({ email }));
-    toast({ title: "Welcome back! 💪" });
-    navigate("/");
+
+    setIsLoading(true);
+
+    try {
+      //API Call
+      const response = await axios.post("http://127.0.0.1:8000/login", {
+        email: email,
+        password: password,
+      });
+
+      // Store user info + user_id from backend
+      localStorage.setItem("fitUser", JSON.stringify({ 
+        email, 
+        user_id: response.data.user_id 
+      }));
+
+      toast({ title: "Welcome back!" });
+      navigate("/workouts");
+    } catch (error: any) {
+      toast({ 
+        title: "Login Failed", 
+        description: error.response?.data?.detail || "Invalid credentials",
+        variant: "destructive" 
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -54,7 +80,7 @@ const Login = () => {
           <div className="text-center lg:text-left">
             <div className="flex items-center gap-2 justify-center lg:justify-start mb-6">
               <Dumbbell className="h-8 w-8 text-primary" />
-              <span className="font-display text-3xl text-foreground">FITFORGE</span>
+              <span className="font-display text-3xl text-foreground">FORMFIX</span>
             </div>
             <h2 className="font-display text-4xl text-foreground">WELCOME BACK</h2>
             <p className="text-muted-foreground mt-1">Sign in to continue your journey</p>
@@ -69,6 +95,7 @@ const Login = () => {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={isLoading}
                 className="bg-secondary border-border h-12 text-foreground placeholder:text-muted-foreground focus:ring-primary"
               />
             </div>
@@ -82,20 +109,26 @@ const Login = () => {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  disabled={isLoading}
                   className="bg-secondary border-border h-12 text-foreground placeholder:text-muted-foreground focus:ring-primary pr-10"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  disabled={isLoading}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground disabled:opacity-50"
                 >
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
             </div>
 
-            <Button type="submit" className="w-full h-12 bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90">
-              Sign In
+            <Button 
+              type="submit" 
+              disabled={isLoading}
+              className="w-full h-12 bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90"
+            >
+              {isLoading ? "Signing In..." : "Sign In"}
             </Button>
           </form>
 

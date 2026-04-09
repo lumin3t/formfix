@@ -1,3 +1,4 @@
+//src/pages/Camera.tsx
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { useCamera } from "@/hooks/useCamera";

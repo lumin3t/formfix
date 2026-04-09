@@ -27,8 +27,8 @@ const WorkoutDetail = () => {
             key={day.id} 
             day={day} 
             index={i} 
-            // Redirect to camera and pass the context
-            onClick={() => navigate(`/camera?plan=${planId}&day=${day.id}`)} 
+            // Change this from /camera to /workout
+            onClick={() => navigate(`/workout/${planId}/${day.id}`)} 
           />
         ))}
       </div>

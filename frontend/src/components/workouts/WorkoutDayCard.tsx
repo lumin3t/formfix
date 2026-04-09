@@ -1,3 +1,4 @@
+//src/components/workouts/WorkoutDayCard.tsx
 import { motion } from "framer-motion";
 import { ChevronRight, Clock, Flame } from "lucide-react";
 

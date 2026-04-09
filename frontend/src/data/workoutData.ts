@@ -1,4 +1,4 @@
-//workoutData.ts
+//src/data/workoutData.ts
 export interface Exercise {
   id: string;
   name: string;

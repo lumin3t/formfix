@@ -6,8 +6,8 @@ import BottomNav from "@/components/BottomNav";
 import heroImg from "@/assets/hero-fitness.jpg";
 
 const features = [
-  { icon: Apple, title: "Add Recipes", desc: "Add and organize your healthy recipes", color: "text-primary" },
-  { icon: Target, title: "Calorie Tracker", desc: "Track your daily caloric intake and goals", color: "text-accent" },
+  { icon: Apple, title: "Find Recipes", desc: "Find new recipes based on your health goals", color: "text-primary" },
+  /*{ icon: Target, title: "Calorie Tracker", desc: "Track your daily caloric intake and goals", color: "text-accent" },*/
   { icon: TrendingUp, title: "Workout Plans", desc: "Structured exercises for different muscle groups", color: "text-primary" },
 ];
 
@@ -90,7 +90,7 @@ const Index = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
               {features.map((feature, i) => (
                 <motion.div
                   key={feature.title}
@@ -99,8 +99,8 @@ const Index = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   onClick={() => {
-                    if (feature.title === "Add Recipes") navigate("/recipes");
-                    else if (feature.title === "Calorie Tracker") navigate("/scan");
+                    if (feature.title === "Find Recipes") navigate("/recipes");
+                    /*else if (feature.title === "Calorie Tracker") navigate("/scan");*/
                     else if (feature.title === "Workout Plans") navigate("/workouts");
                     else navigate("/");
                   }}

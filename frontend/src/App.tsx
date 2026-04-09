@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,10 +28,19 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          
+          {/* Main Workouts List */}
           <Route path="/workouts" element={<Workouts />} />
+          
+          {/* Plan Overview (e.g., /workout/ppl) */}
           <Route path="/workout/:planId" element={<WorkoutDetail />} />
-          <Route path="/camera" element={<Camera />} />
+          
+          {/* Specific Day Checklist (e.g., /workout/ppl/push) */}
           <Route path="/workout/:planId/:dayId" element={<DayExercises />} />
+          
+          {/* AR Lens View */}
+          <Route path="/camera" element={<Camera />} />
+          
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/scan" element={<ScanMeal />} />

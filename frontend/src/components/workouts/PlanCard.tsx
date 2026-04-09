@@ -1,3 +1,4 @@
+//src/components/workouts/PlanCard.tsx
 import { motion } from "framer-motion";
 import { Dumbbell, BarChart3, ArrowRight } from "lucide-react";
 import { WorkoutPlan } from "@/data/workoutData";
