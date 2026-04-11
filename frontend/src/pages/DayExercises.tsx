@@ -1,6 +1,6 @@
 // src/pages/DayExercises.tsx
-import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, 
@@ -19,6 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 const DayExercises = () => {
   const { planId, dayId } = useParams();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { toast } = useToast();
   const [completedExercises, setCompletedExercises] = useState<string[]>([]);
   const [expandedExercise, setExpandedExercise] = useState<string | null>(null);
@@ -26,6 +27,20 @@ const DayExercises = () => {
   // Match plan data based on ID
   const plan = planId === "ppl" ? pushPullLegPlan : highVolumeSplitPlan;
   const day = plan?.days.find((d) => d.id === dayId);
+
+  useEffect(() => {
+    const completedExerciseId = searchParams.get("completed");
+    if (!completedExerciseId) return;
+
+    setCompletedExercises((prev) =>
+      prev.includes(completedExerciseId) ? prev : [...prev, completedExerciseId]
+    );
+    toast({
+      title: "EXERCISE STRUCK",
+      description: "8+ clean reps logged through Green FormFix Lens.",
+    });
+    setSearchParams({});
+  }, [searchParams, setSearchParams, toast]);
 
   if (!day) {
     return (
